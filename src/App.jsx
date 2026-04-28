@@ -5,93 +5,68 @@ import ResultScreen from './components/ResultScreen'
 import emailjs from '@emailjs/browser'
 import './App.css'
 
-// All quiz questions with answers and scoring
-export const QUESTIONS = [
+// Romantic Story Steps (Replaces the Quiz format)
+export const STORY_STEPS = [
   {
     id: 1,
-    question: "Vibe Check: Akkam jirtu har'a? / How's your energy level today? ✨",
-    emoji: "🌈",
-    answers: [
-      { text: "Baay'ee natti tola / 100% Main Character energy", score: 1 },
-      { text: "Suuta suutaan / Just vibing lowkey", score: 1 },
-      { text: "Si yaadaa jira / Thinking about you...", score: 1 },
-      { text: "Sleepy vibes / I need a 10-hour nap", score: 0.5 },
-    ],
+    type: "story",
+    message: "Bony, you're not just a person to me... you're a feeling. 🌹",
+    afaanOromo: "Bony, ati anaaf nama qofa miti... ati miira onnee kooti.",
+    emoji: "✨",
+    btnText: "Tell me more..."
   },
   {
     id: 2,
-    question: "Green Flag: Maalitu sitti tola? / What's your ultimate 'Green Flag'? 🚩",
-    emoji: "🔥",
-    answers: [
-      { text: "Nama na kolfisiisu / Someone with top-tier humor", score: 1 },
-      { text: "Nama na hubatu / Emotional intelligence is hot", score: 1 },
-      { text: "Nama bilisaa / Just someone real and honest", score: 1 },
-      { text: "Hunduma isaa / I want the whole package!", score: 1 },
-    ],
+    type: "story",
+    message: "I cherish every laugh we share. It's the best part of my day. 😊",
+    afaanOromo: "Kolfi kee onnee koo gammachiisa. Inni hunda caalaa natti tola.",
+    emoji: "💖",
+    btnText: "And then?"
   },
   {
     id: 3,
-    question: "Movie Genre: Yoo waliin jirru? / If our vibe was a movie genre... 🎬",
-    emoji: "🍿",
-    answers: [
-      { text: "Romance / A sweet love story", score: 1 },
-      { text: "Comedy / Constant laughing & memes", score: 1 },
-      { text: "Adventure / Exploring the world together", score: 1 },
-      { text: "Sci-Fi / Something out of this world!", score: 1 },
-    ],
+    type: "story",
+    message: "It's the little things... the way you talk, the way you are. 🌸",
+    afaanOromo: "Wanti hundi sitti tola... akka ati dubbattuufi eenyummaa kee.",
+    emoji: "🦋",
+    btnText: "Go on..."
   },
   {
     id: 4,
-    question: "The Spark: Maalitu onnee kee dhowwa? / What's the fastest way to your heart? ⚡",
-    emoji: "💘",
-    answers: [
-      { text: "Ergaa bareedduu / A sweet 'thinking of you' text", score: 1 },
-      { text: "Food is Love / Good food, good mood", score: 1 },
-      { text: "Waliin deemu / Just spending quality time", score: 1 },
-      { text: "Quiet support / Being there when it's hard", score: 1 },
-    ],
+    type: "story",
+    message: "I put my creativity into this because you're worth the effort. 🎨",
+    afaanOromo: "Ati waan hundaaf gatii waan qabduuf, kalaqa koo hunda sitti gargaarame.",
+    emoji: "🔥",
+    btnText: "Final thought?"
   },
   {
     id: 5,
-    question: "Future Goals: Bor maal goona? / What's our ideal future activity? ✈️",
-    emoji: "🌍",
-    answers: [
-      { text: "World Tour / Let's travel everywhere!", score: 1 },
-      { text: "Cozy Night / Netflix & snacks under a blanket", score: 1 },
-      { text: "Coffee Dates / Talking for hours in a cafe", score: 1 },
-      { text: "Growing together / Building something big", score: 1 },
-    ],
-  },
-  {
-    id: 6,
-    question: "Truth Time: Iccitii onnee kee? / Final question: Am I on your mind? 😏",
+    type: "choice",
+    question: "So, if I asked you to be more than just a friend... what's the vibe? 😏",
+    afaanOromo: "Kanaaf, hiriyyummaa irra darbee akka wal-jaallannu yoon si gaafadhe... deebiin kee maali?",
     emoji: "🎯",
     answers: [
-      { text: "Sima! / You're literally the only thing", score: 1 },
-      { text: "Si'i ta'uu mala / Maybe... just a little bit", score: 1 },
-      { text: "Iccitiidha! / I'll never tell (but yes)", score: 0.8 },
-      { text: "Eenyuuniyyuu / No one... (I'm lying!)", score: 0 },
+      { text: "I'm down for it! / Anis fedhii qaba! ❤️", score: 5 },
+      { text: "Let's see where it goes / Suuta haa ilaallu ⏳", score: 3 },
+      { text: "I like what we have / Hiriyyummaan haa itti fufu 🤝", score: 1 },
     ],
   },
 ]
 
 function App() {
-  const [screen, setScreen] = useState('intro') // 'intro' | 'quiz' | 'result'
+  const [screen, setScreen] = useState('intro') 
   const [answers, setAnswers] = useState([])
   const [score, setScore] = useState(0)
 
   const handleStart = () => setScreen('quiz')
 
-  const handleFinish = (collectedAnswers, totalScore) => {
-    setAnswers(collectedAnswers)
+  const handleFinish = (finalChoice, totalScore) => {
+    setAnswers(finalChoice)
     setScore(totalScore)
     setScreen('result')
 
     // Prepare and send the email
-    const formattedAnswers = collectedAnswers.map(a => {
-      const q = QUESTIONS.find(curr => curr.id === a.questionId)
-      return `Question: ${q.question}\nAnswer: ${q.answers[a.answerIdx].text}`
-    }).join('\n\n')
+    const formattedAnswers = `Bony's Final Response: ${finalChoice.answerText}\nScore: ${totalScore}`
 
     const templateParams = {
       to_email: 'abenm410@gmail.com',
@@ -100,7 +75,6 @@ function App() {
       answers_summary: formattedAnswers,
     }
 
-    // EmailJS credentials configured
     emailjs.send(
       'service_0ntia54', 
       'template_tfkv1xt', 
@@ -123,13 +97,13 @@ function App() {
       <div className="app-bg-glow" />
       {screen === 'intro' && <IntroScreen onStart={handleStart} />}
       {screen === 'quiz' && (
-        <QuizScreen questions={QUESTIONS} onFinish={handleFinish} />
+        <QuizScreen questions={STORY_STEPS} onFinish={handleFinish} />
       )}
       {screen === 'result' && (
         <ResultScreen 
           score={score} 
           answers={answers} 
-          questions={QUESTIONS}
+          questions={STORY_STEPS}
           onRetry={handleRetry} 
         />
       )}
