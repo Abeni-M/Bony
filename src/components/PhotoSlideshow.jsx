@@ -1,78 +1,49 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import './PhotoSlideshow.css'
 
-// Auto-read ALL images from assets except profile.jpg
 const imageModules = import.meta.glob('../assets/*.{png,jpg,jpeg,webp}', { eager: true })
 export const slideshowImages = Object.keys(imageModules)
   .filter((p) => !p.includes('profile.jpg'))
   .map((p) => imageModules[p].default)
 
-const PhotoSlideshow = ({ intervalMs = 3500 }) => {
-  const [active, setActive] = useState(0)
-  const [prev, setPrev]   = useState(null)
-  const timerRef = useRef(null)
-
-  const goTo = (idx) => {
-    setPrev(active)
-    setActive(idx)
-  }
+const PhotoSlideshow = ({ intervalMs = 4500 }) => {
+  const [index, setIndex] = useState(0)
 
   useEffect(() => {
     if (slideshowImages.length <= 1) return
-    timerRef.current = setInterval(() => {
-      setActive((cur) => {
-        setPrev(cur)
-        return (cur + 1) % slideshowImages.length
-      })
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % slideshowImages.length)
     }, intervalMs)
-    return () => clearInterval(timerRef.current)
+    return () => clearInterval(timer)
   }, [intervalMs])
 
   if (slideshowImages.length === 0) {
-    return <div className="slideshow-empty">No photos yet 🌸</div>
+    return <div className="slideshow-empty">No photos found 📷</div>
+  }
+
+  // Get current image + the next 3 for the stack
+  const visibleIndices = []
+  for (let i = 0; i < Math.min(4, slideshowImages.length); i++) {
+    visibleIndices.push((index + i) % slideshowImages.length)
   }
 
   return (
-    <div className="slideshow-root">
-      {/* Images stack */}
-      <div className="slideshow-images">
-        {slideshowImages.map((src, i) => (
-          <img
-            key={src}
-            src={src}
-            alt={`Memory ${i + 1}`}
-            className={[
-              'slideshow-img',
-              i === active ? 'ss-active' : '',
-              i === prev   ? 'ss-prev'   : '',
-            ].join(' ')}
-            draggable={false}
-          />
+    <div className="gallery-container">
+      <div className="photo-stack">
+        {visibleIndices.reverse().map((idx, stackPos) => (
+          <div 
+            key={`${idx}-${stackPos}`}
+            className="stacked-photo"
+            style={{
+              '--stack-index': 3 - stackPos, // 0 is top
+              backgroundImage: `url(${slideshowImages[idx]})`
+            }}
+          >
+            <div className="photo-inner-border" />
+          </div>
         ))}
-
-        {/* Gradient overlay */}
-        <div className="slideshow-overlay" />
-
-        {/* Corner glow */}
-        <div className="slideshow-glow" />
       </div>
-
-      {/* Dot indicators */}
-      {slideshowImages.length > 1 && (
-        <div className="slideshow-dots" aria-label="Slideshow navigation">
-          {slideshowImages.map((_, i) => (
-            <button
-              key={i}
-              aria-label={`Go to photo ${i + 1}`}
-              className={`ss-dot ${i === active ? 'ss-dot-active' : ''}`}
-              onClick={() => {
-                clearInterval(timerRef.current)
-                goTo(i)
-              }}
-            />
-          ))}
-        </div>
-      )}
+      <div className="gallery-reflection" />
     </div>
   )
 }

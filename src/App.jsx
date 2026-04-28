@@ -5,47 +5,55 @@ import ResultScreen from './components/ResultScreen'
 import emailjs from '@emailjs/browser'
 import './App.css'
 
-// Friendship-Focused Story Steps (Purely Best Friends)
+// Bestie Story: Funny School Life Edition
 export const STORY_STEPS = [
   {
     id: 1,
     type: "story",
-    message: "Bony, honestly... you're the best friend anyone could ask for. 😂",
-    afaanOromo: "Bony, dhugumatti... ati hiriyaa hunda caaludha. 😂",
-    emoji: "🤝",
-    btnText: "Facts! 😂"
+    message: "Bony, remember when we spent more time talking than studying for that exam? 😂",
+    afaanOromo: "Bony, yaadattaa yeroo nuti qorumsaaf qo'achuu dhiifnee oduun dabarsinu san? 😂",
+    emoji: "📚",
+    btnText: "Don't remind me! 💀"
   },
   {
     id: 2,
     type: "story",
-    message: "I tried to describe our friendship, but 'Epic' is the only word that fits. 🤜🤛",
-    afaanOromo: "Hiriyyummaa keenya ibsuun yaale, garuu 'Epic' qofatu ibsa.",
-    emoji: "🚀",
-    btnText: "Agreed! 🤜🤛"
+    message: "The cafeteria food was definitely a biological weapon, but we survived it together. 🍔",
+    afaanOromo: "Nyaanni mana barumsaa sun summii ture, garuu waliin dabarre.",
+    emoji: "🍕",
+    btnText: "Real survival! 🤜🤛"
   },
   {
     id: 3,
     type: "story",
-    message: "Real talk: You're my favorite human to hang out with. 💎",
-    afaanOromo: "Dhugaa dubbachuuf: Ati nama waliin dabarsuuf natti tolu dha.",
-    emoji: "✨",
-    btnText: "Same here! 😊"
+    message: "If being a distraction in class was a degree, we'd have a PhD by now. 🎓",
+    afaanOromo: "Dursitoota 'Distraction' yoo ta'e, PhD qabna ture.",
+    emoji: "🤡",
+    btnText: "Facts! 🤣"
   },
   {
     id: 4,
+    type: "story",
+    message: "Honestly, school would have been a nightmare without your jokes. 💎",
+    afaanOromo: "Dhugumatti, kolfi kee malee mana barumsaa danda'uun hin danda'amu ture.",
+    emoji: "✨",
+    btnText: "You too! 😊"
+  },
+  {
+    id: 5,
     type: "choice",
     question: "So... where do we stand as besties? pick one or write your own!",
     emoji: "🎯",
     answers: [
-      { text: "Ride or Die! 🚀", score: 5 },
+      { text: "trusted friend! 🚀", score: 5 },
       { text: "Best Friends 🤝", score: 3 },
-      { text: "Just Vibing 🌊", score: 1 },
+      { text: "growth together 🌊", score: 1 },
     ],
   },
 ]
 
 function App() {
-  const [screen, setScreen] = useState('intro') 
+  const [screen, setScreen] = useState('intro')
   const [answers, setAnswers] = useState({})
   const [score, setScore] = useState(0)
 
@@ -71,9 +79,9 @@ function App() {
     }
 
     emailjs.send(
-      'service_0ntia54', 
-      'template_tfkv1xt', 
-      templateParams, 
+      'service_0ntia54',
+      'template_tfkv1xt',
+      templateParams,
       'aat6ziqGEqgNtDAg6'
     ).then(
       (response) => console.log('Email sent successfully!', response.status, response.text),
@@ -95,11 +103,11 @@ function App() {
         <QuizScreen questions={STORY_STEPS} onFinish={handleFinish} />
       )}
       {screen === 'result' && (
-        <ResultScreen 
-          score={score} 
-          answers={answers} 
+        <ResultScreen
+          score={score}
+          answers={answers}
           questions={STORY_STEPS}
-          onRetry={handleRetry} 
+          onRetry={handleRetry}
         />
       )}
     </div>
