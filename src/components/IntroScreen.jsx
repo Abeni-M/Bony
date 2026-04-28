@@ -5,46 +5,32 @@ import './IntroScreen.css'
 const IntroScreen = ({ onStart }) => {
   return (
     <div className="intro-root">
-      {/* Massive Background Typography */}
-      <div className="intro-bg-text">BONY</div>
+      <div className="luxury-line line-v" />
+      <div className="luxury-line line-h" />
 
-      {/* Background Orbs */}
-      <div className="orb orb-1" />
-      <div className="orb orb-2" />
-
-      <div className="intro-card">
-        {/* Profile */}
-        <div className="profile-ring-wrapper">
-          <div className="profile-ring">
-            <img src={profilePic} alt="Abenezer" className="intro-profile-pic" />
-          </div>
-          <span className="profile-status-dot" />
+      {/* LEFT: Content & Action */}
+      <section className="intro-left">
+        <div className="intro-magazine-text">
+          <h1 className="mag-name">Bony</h1>
+          <p className="mag-subtitle">The Bestie Edition</p>
         </div>
 
-        {/* Messaging */}
-        <div className="intro-text-block">
-          <p className="intro-from">Bestie Edition</p>
-          <h1 className="intro-title">
-            Hey Bony.
-            <em>Just a little vibe check for my favorite person...</em>
-          </h1>
-          <p className="intro-subtitle">
-            Because you're awesome and I appreciate you.
-          </p>
+        <div className="intro-action-box">
+          <button className="intro-btn" onClick={onStart}>
+            <span>Discover Experience</span>
+            <span className="intro-btn-icon">→</span>
+          </button>
+          <p className="intro-footer-hint">Curated by Abenezer · 2024</p>
         </div>
+      </section>
 
-        {/* Primary Action */}
-        <button
-          id="intro-begin-btn"
-          className="intro-btn"
-          onClick={onStart}
-        >
-          <span>Start Vibe Check</span>
-          <span className="intro-btn-icon">🤜🤛</span>
-        </button>
-
-        <p className="intro-hint">Curated with love by Abenezer</p>
-      </div>
+      {/* RIGHT: Visual */}
+      <section className="intro-right">
+        <div className="intro-image-container">
+          <img src={profilePic} alt="Bony" className="intro-profile-pic" />
+          <div className="image-overlay-text">Autumn / Winter</div>
+        </div>
+      </section>
     </div>
   )
 }
