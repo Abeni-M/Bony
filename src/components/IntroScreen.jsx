@@ -5,7 +5,10 @@ import './IntroScreen.css'
 const IntroScreen = ({ onStart }) => {
   return (
     <div className="intro-root">
-      {/* Background Orbs are handled by CSS */}
+      {/* Massive Background Typography */}
+      <div className="intro-bg-text">BONY</div>
+
+      {/* Background Orbs */}
       <div className="orb orb-1" />
       <div className="orb orb-2" />
 
