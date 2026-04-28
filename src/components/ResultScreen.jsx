@@ -11,7 +11,7 @@ const SOCIALS = [
 const ResultScreen = ({ score, answers, onRetry }) => {
   const isEpic = score >= 4.5
   const isGood = score >= 3 && score < 4.5
-  
+
   const ratingPercent = Math.min(100, (score / 5) * 100)
 
   return (
@@ -34,11 +34,11 @@ const ResultScreen = ({ score, answers, onRetry }) => {
           <section className="result-article">
             {isEpic ? (
               <>
-                <h1 className="result-headline">Ride or Die.</h1>
+                <h1 className="result-headline">Thanks for everything</h1>
                 <div className="result-letter">
                   <p>
-                    Bony, honestly... you're the realest! 💯 
-                    This connection is more than just a typical friendship—it's top-tier energy. 
+                    Bony, honestly... you're the realest! 💯
+                    This connection is more than just a typical friendship—it's top-tier energy.
                   </p>
                   <p className="result-amharic">
                     Amma kana hunda keessa waan tokkoyu sin hin fakkaanne, my creativity gad-dhera dhuga.
@@ -54,8 +54,8 @@ const ResultScreen = ({ score, answers, onRetry }) => {
                 <h1 className="result-headline">Pure Vibe.</h1>
                 <div className="result-letter">
                   <p>
-                    Hey, that's awesome! 🥂 
-                    I really value our friendship and I'm glad we're vibing so well. 
+                    Hey, that's awesome! 🥂
+                    I really value our friendship and I'm glad we're vibing so well.
                   </p>
                   <p>
                     Let's just keep the good times rolling! You're a legend.
@@ -70,7 +70,7 @@ const ResultScreen = ({ score, answers, onRetry }) => {
                 <h1 className="result-headline">Chill Flow.</h1>
                 <div className="result-letter">
                   <p>
-                    Haha, we're definitely chill! 💯 
+                    Haha, we're definitely chill! 💯
                     I appreciate you and I'm glad we could share this funny little moment.
                   </p>
                   <p>

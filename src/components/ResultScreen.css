@@ -183,7 +183,7 @@
   .result-headline { font-size: 3.5rem; }
   .result-footer { flex-direction: column; gap: 2rem; padding: 2rem 1.5rem; }
 }
-ult-letter { font-size: 0.95rem; }
+  .result-letter { font-size: 0.95rem; }
 }
 
 .result-bg-slideshow {
