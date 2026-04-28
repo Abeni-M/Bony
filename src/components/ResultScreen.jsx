@@ -110,42 +110,29 @@ const ResultScreen = ({ score, answers, questions, onRetry }) => {
           <>
             {/* MATCH — Grand Confession */}
             <div className="result-header">
-              <div className="result-icon-ring">💖</div>
-              <p className="result-label result-label-match">This is what i feel for youuuu!!! 💖🌹</p>
+              <div className="result-icon-ring">🔥</div>
+              <p className="result-label result-label-match">Waliigallee! / Vibe Check Passed! 💯</p>
               <h1 className="result-title result-title-match">
-                My Dearest…
+                It's a Match, Bony!
               </h1>
             </div>
 
             <div className="result-letter">
               <p>
-                Bony, I've been trying to write this for a while, because <em>"I am happy when I am with you"</em> never feels like enough.
-                Those three words are true — but they are just the door.
-                What I feel for you is the whole house, and the garden, and the sky above it.
+                Bony, honestly... I wasn't expecting the vibe meter to go this high! 😂 
+                I'm so glad we're on the same page. 
               </p>
               <p>
-                Before you, I was Abenezer. But <em>with you</em>, I feel like I am finally
-                meeting the person I was always meant to be. You don't just add to my life —
-                you have fundamentally changed its texture and its light.
-                You've made the ordinary world feel like a wonderful place.
+                You're not just special; you're the whole playlist. 🎵
+                I love how you think, how you laugh, and how you just *get* it. 
+                Meeting you was the best plot twist of my year!
               </p>
               <p>
-                I love the way your mind works. I love your strength — the quiet way you
-                handle things that would break others. And yes, I love your smile,
-                the one that starts in your eyes before it ever reaches your lips.
+                Whatever happens next, I just want you to know that you've got me 
+                smiling at my phone like an idiot. Thanks for being you.
               </p>
-              <p>
-                Loving you isn't a feeling that comes and goes.
-                It's a <em>gravity</em>. The constant, steady pull of my entire being toward yours.
-                You are my home — not a place, but a person.
-              </p>
-              <p>
-                Whatever the future holds, the one thing I know for certain is that
-                I want to be next to you for all of it. Thank you for being the best
-                part of every single one of my days.
-              </p>
-              <p className="result-sign">With all my heart,<br /><strong>Abenezer</strong></p>
-              <p className="result-amharic"> always i am with you whenever you need me wherever you are 💖🌹</p>
+              <p className="result-sign">With a big smile,<br /><strong>Abenezer</strong></p>
+              <p className="result-amharic">Hunda caala sitti tolaa! 💖🌹</p>
             </div>
 
             {/* Feelings Summary Section */}
@@ -185,27 +172,26 @@ const ResultScreen = ({ score, answers, questions, onRetry }) => {
           <>
             {/* MAYBE — Gentle, hopeful */}
             <div className="result-header">
-              <div className="result-icon-ring result-icon-maybe">🌙</div>
-              <p className="result-label result-label-maybe">You are very special for me </p>
+              <div className="result-icon-ring result-icon-maybe">🍿</div>
+              <p className="result-label result-label-maybe">Suuta-suutaan... / Loading... ⏳</p>
               <h1 className="result-title result-title-maybe">
-                That's okay.
+                Let's See Where It Goes.
               </h1>
             </div>
 
             <div className="result-letter result-letter-maybe">
               <p>
-                You don't have to have it all figured out right now.
-                Feelings can be quiet and uncertain and still be completely real.
+                Hey, that's totally cool! No rush, no pressure. 
+                I actually like that we're taking it slow and just seeing what happens.
               </p>
               <p>
-                I just wanted you to know that I see you — truly —
-                and whatever you feel, I'm here without any pressure.
+                You're definitely someone I want to keep talking to. 
+                Whether we're laughing at memes or having deep talks, I'm here for it.
               </p>
               <p>
-                If you ever want to talk, to laugh, or even just sit in comfortable silence…
-                you know where to find me.
+                Let's just keep the good vibes rolling! 🌙
               </p>
-              <p className="result-sign">Always,<br /><strong>Abenezer</strong> 🌸</p>
+              <p className="result-sign">Catch you soon,<br /><strong>Abenezer</strong> 🌸</p>
             </div>
 
             <div className="result-summary">
@@ -246,27 +232,27 @@ const ResultScreen = ({ score, answers, questions, onRetry }) => {
           <>
             {/* OPPOSITE — Sweet, non-pushy */}
             <div className="result-header">
-              <div className="result-icon-ring result-icon-opposite">🌿</div>
-              <p className="result-label result-label-opposite">And that's completely okay.</p>
+              <div className="result-icon-ring result-icon-opposite">🤝</div>
+              <p className="result-label result-label-opposite">Hiriyyummaa qofa? / Friendzoned! 😂</p>
               <h1 className="result-title result-title-opposite">
-                No pressure, ever.
+                Besties it is!
               </h1>
             </div>
 
             <div className="result-letter result-letter-opposite">
               <p>
-                Not every heart beats in the same direction, and that's perfectly fine.
-                I respect you and your feelings — always.
+                Haha, looks like we're not quite on the same wavelength today! 
+                But honestly? I respect the honesty. 💯
               </p>
               <p>
-                I just wanted to be honest. That's all this was.
-                No expectations, no pressure. Just a guy being real.
+                No hard feelings at all. You're still an amazing person and 
+                I'm glad we could share this funny little quiz moment.
               </p>
               <p>
-                If you ever need anything — a laugh, a conversation, or just someone
-                who genuinely cares about you — I'm still here. That part never changes.
+                If you ever need a laugh or someone to talk to, 
+                I'm still your guy. Some things never change! 🌿
               </p>
-              <p className="result-sign">Warmly,<br /><strong>Abenezer</strong></p>
+              <p className="result-sign">Peace & Love,<br /><strong>Abenezer</strong></p>
             </div>
 
             <div className="result-summary">
