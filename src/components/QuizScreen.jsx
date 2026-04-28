@@ -6,6 +6,7 @@ const QuizScreen = ({ questions, onFinish }) => {
   const [qIndex, setQIndex] = useState(0)
   const [animating, setAnimating] = useState(false)
   const [score, setScore] = useState(0)
+  const [personalMsg, setPersonalMsg] = useState("")
 
   const step = questions[qIndex]
 
@@ -17,7 +18,10 @@ const QuizScreen = ({ questions, onFinish }) => {
 
     setTimeout(() => {
       if (qIndex + 1 >= questions.length) {
-        onFinish({ answerText: choiceText }, newScore)
+        onFinish({ 
+          answerText: choiceText, 
+          personalMessage: personalMsg 
+        }, newScore)
       } else {
         setQIndex(qIndex + 1)
         setScore(newScore)
@@ -60,7 +64,6 @@ const QuizScreen = ({ questions, onFinish }) => {
             ) : (
               <>
                 <h2 className="quiz-question">{step.question}</h2>
-                <p className="quiz-afaan">{step.afaanOromo}</p>
                 <div className="quiz-answers">
                   {step.answers.map((ans, i) => (
                     <button
@@ -71,6 +74,22 @@ const QuizScreen = ({ questions, onFinish }) => {
                       <span>{ans.text}</span>
                     </button>
                   ))}
+                </div>
+
+                <div className="quiz-personal-box">
+                  <p className="quiz-box-label">Or write your own thoughts... ✍️</p>
+                  <textarea 
+                    className="quiz-textarea"
+                    placeholder="Type here..."
+                    value={personalMsg}
+                    onChange={(e) => setPersonalMsg(e.target.value)}
+                  />
+                  <button 
+                    className="quiz-submit-written"
+                    onClick={() => handleNext(3, "Written Message")}
+                  >
+                    Send My Own Message
+                  </button>
                 </div>
               </>
             )}

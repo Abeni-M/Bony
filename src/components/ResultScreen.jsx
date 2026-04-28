@@ -9,9 +9,9 @@ const SOCIALS = [
 ]
 
 const ResultScreen = ({ score, answers, questions, onRetry }) => {
-  const isMatch = score >= 4.5
-  const isMaybe = score >= 3 && score < 4.5
-  const isOpposite = score < 3
+  const isEpic = score >= 4.5
+  const isGood = score >= 3 && score < 4.5
+  const isOk = score < 3
 
   return (
     <div className="result-root">
@@ -21,50 +21,49 @@ const ResultScreen = ({ score, answers, questions, onRetry }) => {
       </div>
 
       <div className="result-card result-card-in">
-        {isMatch && (
+        {isEpic && (
           <div className="result-content">
             <header className="result-header">
-              <span className="result-icon-ring">🔥</span>
-              <p className="result-label">Vibe Check Passed</p>
-              <h1 className="result-title">It's a Match, Bony.</h1>
+              <span className="result-icon-ring">🤜🤛</span>
+              <p className="result-label">Bestie Vibe: Epic</p>
+              <h1 className="result-title">Ride or Die!</h1>
             </header>
 
             <div className="result-letter">
               <p>
-                Bony, honestly... I wasn't expecting the vibe meter to go this high! 😂
-                I'm so glad we're on the same page.
+                Bony, honestly... you're the realest! 💯
+                I'm so glad we're on the same page about our friendship.
               </p>
               <p className="result-amharic">
                 Amma kana hunda keessa waan tokkoyu sin hin fakkaanne, my creativity gad-dhera dhuga.
               </p>
               <p>
-                You're not just special; you're the whole playlist. 🎵
-                I love how you think, how you laugh, and how you just get it. 
-                Meeting you was the best plot twist of my year!
+                Thanks for always being there and for being such an awesome person.
+                Our friendship is the best plot twist of my year!
               </p>
               <div className="result-sign">
-                Stay as amazing as you are.
+                Stay as amazing as you are, Bestie.
                 <strong>Abenezer</strong>
               </div>
-              <p className="result-amharic">Hunda caala sitti haa toluu! 💖🌹</p>
+              <p className="result-amharic">Hunda caala sitti haa toluu! ✨🤜🤛</p>
             </div>
           </div>
         )}
 
-        {isMaybe && (
+        {isGood && (
           <div className="result-content">
             <header className="result-header">
-              <span className="result-icon-ring">🍿</span>
-              <p className="result-label">Loading Vibes...</p>
-              <h1 className="result-title">Let's see where it goes.</h1>
+              <span className="result-icon-ring">🤝</span>
+              <p className="result-label">Bestie Vibe: Good</p>
+              <h1 className="result-title">Great Friends!</h1>
             </header>
             <div className="result-letter">
               <p>
-                Hey, that's totally cool! No rush, no pressure. 
-                I actually like that we're taking it slow and just seeing what happens.
+                Hey, that's awesome! 🥂
+                I really value our friendship and I'm glad we're vibing well.
               </p>
               <p>
-                Let's just keep the good vibes rolling and see what the future holds. 🌙
+                Let's just keep the good times rolling! 🌙
               </p>
               <div className="result-sign">
                 Catch you soon,
@@ -74,20 +73,20 @@ const ResultScreen = ({ score, answers, questions, onRetry }) => {
           </div>
         )}
 
-        {isOpposite && (
+        {isOk && (
           <div className="result-content">
             <header className="result-header">
-              <span className="result-icon-ring">🤝</span>
-              <p className="result-label">Friend Zone Gold</p>
-              <h1 className="result-title">Besties for now!</h1>
+              <span className="result-icon-ring">☕</span>
+              <p className="result-label">Bestie Vibe: Chill</p>
+              <h1 className="result-title">Vibing along!</h1>
             </header>
             <div className="result-letter">
               <p>
-                Haha, looks like we're not quite on the same wavelength today! 
-                But honestly? I respect the honesty. 💯
+                Haha, we're definitely chill! 💯
+                I appreciate you and I'm glad we could share this funny little moment.
               </p>
               <p>
-                No hard feelings at all. You're still an amazing person. 🌿
+                No pressure, just vibes. 🌿
               </p>
               <div className="result-sign">
                 Peace & Love,
@@ -98,14 +97,10 @@ const ResultScreen = ({ score, answers, questions, onRetry }) => {
         )}
 
         <div className="result-summary">
-          <p className="result-summary-title">Your Heart's Highlights</p>
+          <p className="result-summary-title">Your Response</p>
           <div className="result-summary-tags">
-            {answers.map((a, idx) => {
-              const q = questions.find(q => q.id === a.questionId);
-              const ansText = q?.answers[a.answerIdx]?.text;
-              const short = ansText ? ansText.split('/')[1]?.trim() || ansText : "✨";
-              return <span key={idx} className="result-tag">{q?.emoji} {short}</span>;
-            })}
+            <span className="result-tag">Choice: {answers.answerText || 'None'}</span>
+            {answers.personalMessage && <span className="result-tag">Note: {answers.personalMessage.substring(0, 20)}...</span>}
           </div>
         </div>
 
