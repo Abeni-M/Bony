@@ -9,68 +9,68 @@ import './App.css'
 export const QUESTIONS = [
   {
     id: 1,
-    question: "Ati yeroo mara jaalala akkamiitu sitti tola? / What kind of love is actually your vibe? ✨",
-    emoji: "😎",
+    question: "Vibe Check: Akkam jirtu har'a? / How's your energy level today? ✨",
+    emoji: "🌈",
     answers: [
-      { text: "Kan waliin kolfu / Laughing until our stomachs hurt", score: 1 },
-      { text: "Kan harka wal-qabatee deemu / Cheesy holding hands stuff", score: 1 },
-      { text: "Kan callisee wal-hubatu / Quiet vibes & Netflix", score: 1 },
-      { text: "Hunda isaa! / Give me all of it!", score: 1 },
+      { text: "Baay'ee natti tola / 100% Main Character energy", score: 1 },
+      { text: "Suuta suutaan / Just vibing lowkey", score: 1 },
+      { text: "Si yaadaa jira / Thinking about you...", score: 1 },
+      { text: "Sleepy vibes / I need a 10-hour nap", score: 0.5 },
     ],
   },
   {
     id: 2,
-    question: "Nama tokko yoo yaaddu maal goota? / What's your move when someone is stuck in your head? 🤔",
-    emoji: "👀",
+    question: "Green Flag: Maalitu sitti tola? / What's your ultimate 'Green Flag'? 🚩",
+    emoji: "🔥",
     answers: [
-      { text: "Suuraa isaa nan laala / Stalking your photos (just a bit!)", score: 1 },
-      { text: "Nan bilbilaaf / I just call or text directly", score: 1 },
-      { text: "Nan callisa / I keep it a secret and act cool", score: 0.5 },
-      { text: "Nan irraanfadha / I try to forget (but I can't!)", score: 0 },
+      { text: "Nama na kolfisiisu / Someone with top-tier humor", score: 1 },
+      { text: "Nama na hubatu / Emotional intelligence is hot", score: 1 },
+      { text: "Nama bilisaa / Just someone real and honest", score: 1 },
+      { text: "Hunduma isaa / I want the whole package!", score: 1 },
     ],
   },
   {
     id: 3,
-    question: "Yoo namni tokko 'Ati anaaf adda' siin jedhe? / If someone says 'You're special to me'... 😳",
-    emoji: "💖",
+    question: "Movie Genre: Yoo waliin jirru? / If our vibe was a movie genre... 🎬",
+    emoji: "🍿",
     answers: [
-      { text: "Nan kolfadha / I'll probably just blush and smile", score: 1 },
-      { text: "Anis akkasuma! / I'd say 'You are special too!'", score: 1 },
-      { text: "Maaliif? / I'd ask 'Wait, really? Why?'", score: 0.5 },
-      { text: "Nan baqadha! / I'd run away (just kidding!)", score: 0 },
+      { text: "Romance / A sweet love story", score: 1 },
+      { text: "Comedy / Constant laughing & memes", score: 1 },
+      { text: "Adventure / Exploring the world together", score: 1 },
+      { text: "Sci-Fi / Something out of this world!", score: 1 },
     ],
   },
   {
     id: 4,
-    question: "Guyyaa kee maalitu gammachiisa? / What's the fastest way to make you smile? ⚡",
-    emoji: "🍕",
+    question: "The Spark: Maalitu onnee kee dhowwa? / What's the fastest way to your heart? ⚡",
+    emoji: "💘",
     answers: [
-      { text: "Nyaata gaarii / Good food is the secret key", score: 1 },
-      { text: "Ergaa bareedduu / A sweet 'Good Morning' text", score: 1 },
-      { text: "Waliin deemuu / Just hanging out together", score: 1 },
-      { text: "Kolfisiisuu / Making me laugh non-stop", score: 1 },
+      { text: "Ergaa bareedduu / A sweet 'thinking of you' text", score: 1 },
+      { text: "Food is Love / Good food, good mood", score: 1 },
+      { text: "Waliin deemu / Just spending quality time", score: 1 },
+      { text: "Quiet support / Being there when it's hard", score: 1 },
     ],
   },
   {
     id: 5,
-    question: "Wanti si gammachiisu maali? / What truly makes your heart do a happy dance? 💃",
-    emoji: "🌈",
+    question: "Future Goals: Bor maal goona? / What's our ideal future activity? ✈️",
+    emoji: "🌍",
     answers: [
-      { text: "Nama na hubatu / Someone who actually gets me", score: 1 },
-      { text: "Nama na kolfisiisu / Someone who makes me laugh", score: 1 },
-      { text: "Nama na jaallatu / Someone who loves me for real", score: 1 },
-      { text: "Nageenya / Just peace, quiet and you", score: 1 },
+      { text: "World Tour / Let's travel everywhere!", score: 1 },
+      { text: "Cozy Night / Netflix & snacks under a blanket", score: 1 },
+      { text: "Coffee Dates / Talking for hours in a cafe", score: 1 },
+      { text: "Growing together / Building something big", score: 1 },
     ],
   },
   {
     id: 6,
-    question: "Amma amma eenyuun yaadaa jirta? / Be honest, who are you thinking about right now? 😏",
+    question: "Truth Time: Iccitii onnee kee? / Final question: Am I on your mind? 😏",
     emoji: "🎯",
     answers: [
-      { text: "Sima! / Definitely you, obviously!", score: 1 },
-      { text: "Si'i ta'uu mala / Maybe it's you... who knows?", score: 1 },
-      { text: "Iccitiidha! / It's a top secret!", score: 0.5 },
-      { text: "Eenyuuniyyuu / No one special (Liar!)", score: 0 },
+      { text: "Sima! / You're literally the only thing", score: 1 },
+      { text: "Si'i ta'uu mala / Maybe... just a little bit", score: 1 },
+      { text: "Iccitiidha! / I'll never tell (but yes)", score: 0.8 },
+      { text: "Eenyuuniyyuu / No one... (I'm lying!)", score: 0 },
     ],
   },
 ]
@@ -120,6 +120,7 @@ function App() {
 
   return (
     <div className="app-root">
+      <div className="app-bg-glow" />
       {screen === 'intro' && <IntroScreen onStart={handleStart} />}
       {screen === 'quiz' && (
         <QuizScreen questions={QUESTIONS} onFinish={handleFinish} />
