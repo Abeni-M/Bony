@@ -18,8 +18,8 @@ export const STORY_STEPS = [
   {
     id: 2,
     type: "story",
-    message: "The cafeteria food was definitely a biological weapon, but we survived it together. 🍔",
-    afaanOromo: "Nyaanni mana barumsaa sun summii ture, garuu waliin dabarre.",
+    message: "you are not only friend for me greater than friend 🍔",
+    afaanOromo: "ati naf hiriya irra naf caaalta ",
     emoji: "🍕",
     btnText: "Real survival! 🤜🤛"
   },
@@ -27,7 +27,7 @@ export const STORY_STEPS = [
     id: 3,
     type: "story",
     message: "If being a distraction in class was a degree, we'd have a PhD by now. 🎓",
-    afaanOromo: "Dursitoota 'Distraction' yoo ta'e, PhD qabna ture.",
+    afaanOromo: "Dursitoota 'Degree argamaa utuu ta'e, PhD qabna ture.",
     emoji: "🤡",
     btnText: "Facts! 🤣"
   },
@@ -35,7 +35,7 @@ export const STORY_STEPS = [
     id: 4,
     type: "story",
     message: "Honestly, school would have been a nightmare without your jokes. 💎",
-    afaanOromo: "Dhugumatti, kolfi kee malee mana barumsaa danda'uun hin danda'amu ture.",
+    afaanOromo: "Dhugumatti, kolfi kee malee mana barumsaati barachu hin danda'amu ture.",
     emoji: "✨",
     btnText: "You too! 😊"
   },
