@@ -12,8 +12,6 @@ const ResultScreen = ({ score, answers, onRetry }) => {
   const isEpic = score >= 4.5
   const isGood = score >= 3 && score < 4.5
 
-  const ratingPercent = Math.min(100, (score / 5) * 100)
-
   return (
     <div className="result-root">
       <div className="result-bg-slideshow">
@@ -37,8 +35,8 @@ const ResultScreen = ({ score, answers, onRetry }) => {
                 <h1 className="result-headline">Thanks for everything</h1>
                 <div className="result-letter">
                   <p>
-                    Bony, honestly... you're the realest! 💯
-                    This connection is more than just a typical friendship—it's top-tier energy.
+                    Bony, honestly... you're the realest! 💯 
+                    This connection is more than just a typical friendship—it's top-tier energy. 
                   </p>
                   <p className="result-amharic">
                     Amma kana hunda keessa waan tokkoyu sin hin fakkaanne, my creativity gad-dhera dhuga.
@@ -54,8 +52,8 @@ const ResultScreen = ({ score, answers, onRetry }) => {
                 <h1 className="result-headline">Pure Vibe.</h1>
                 <div className="result-letter">
                   <p>
-                    Hey, that's awesome! 🥂
-                    I really value our friendship and I'm glad we're vibing so well.
+                    Hey, that's awesome! 🥂 
+                    I really value our friendship and I'm glad we're vibing so well. 
                   </p>
                   <p>
                     Let's just keep the good times rolling! You're a legend.
@@ -70,7 +68,7 @@ const ResultScreen = ({ score, answers, onRetry }) => {
                 <h1 className="result-headline">Chill Flow.</h1>
                 <div className="result-letter">
                   <p>
-                    Haha, we're definitely chill! 💯
+                    Haha, we're definitely chill! 💯 
                     I appreciate you and I'm glad we could share this funny little moment.
                   </p>
                   <p>
@@ -81,16 +79,8 @@ const ResultScreen = ({ score, answers, onRetry }) => {
             )}
           </section>
 
-          {/* Sidebar Rating */}
+          {/* Sidebar */}
           <aside className="result-sidebar">
-            <div className="rating-meter">
-              <span className="rating-label">Bestie Rating</span>
-              <div className="rating-bar-container">
-                <div className="rating-bar-fill" style={{ '--rating': `${ratingPercent}%` }} />
-              </div>
-              <span className="rating-value">{ratingPercent.toFixed(0)}%</span>
-            </div>
-
             <div className="result-recap">
               <span className="recap-title">Bony's Response</span>
               <p><strong>Choice:</strong> {answers.answerText || 'Custom'}</p>
