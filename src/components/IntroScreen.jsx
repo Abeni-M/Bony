@@ -1,41 +1,23 @@
 import React from 'react'
-import profilePic from '../assets/profile.jpg'
 import './IntroScreen.css'
 
 const IntroScreen = ({ onStart }) => {
   return (
     <div className="intro-root">
-      {/* Immersive Background */}
-      <div 
-        className="intro-bg-image" 
-        style={{ backgroundImage: `url(${profilePic})` }} 
-      />
-      <div className="intro-vignette" />
+      <div className="intro-cinematic-card">
+        <div className="intro-decorative-line"></div>
+        <h2 className="intro-pretitle">An Expression Of</h2>
+        <h1 className="intro-main-title">Gratitude</h1>
+        <div className="intro-decorative-line"></div>
+        
+        <p className="intro-tagline">
+          Some people make the world brighter just by being in it. This is a small appreciation for one of those people.
+        </p>
 
-      {/* Central Glass Piece */}
-      <div className="intro-glass-card">
-        <div className="intro-profile-wrapper">
-          <div className="intro-profile-circle">
-            <img src={profilePic} alt="Bony" className="intro-profile-pic" />
-          </div>
-        </div>
-
-        <div className="intro-content">
-          <p className="intro-pretitle">The Bestie Edition</p>
-          <h1 className="intro-main-title">Hey Bony.</h1>
-          <p className="intro-tagline">
-            I built something small to celebrate our vibe. 
-            Ready to see it?
-          </p>
-        </div>
-
-        <button className="intro-btn" onClick={onStart}>
-          <div className="intro-btn-pulse" />
-          <span>Unlock Experience</span>
-          <span className="intro-btn-icon">→</span>
+        <button className="intro-action-btn" onClick={onStart}>
+          <span className="btn-text">Discover More</span>
+          <span className="btn-arrow">→</span>
         </button>
-
-        <p className="intro-author">By Abenezer · 2024</p>
       </div>
     </div>
   )

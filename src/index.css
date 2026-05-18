@@ -1,31 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syncopate:wght@400;700&display=swap');
 
 :root {
-  /* Ultra-Modern Color Palette */
-  --bg-deep:       #020617;
-  --bg-darker:     #050a1e;
-  --bg-glass:      rgba(15, 23, 42, 0.65);
-  --bg-glass-heavy: rgba(15, 23, 42, 0.85);
+  /* Cinematic Gaming / Cyberpunk Aesthetic */
+  --bg-deep:       #030305;
+  --bg-darker:     #000000;
+  --bg-glass:      rgba(10, 15, 30, 0.6);
+  --bg-glass-heavy: rgba(10, 15, 30, 0.9);
   
-  --accent-primary: #ec4899; /* Bright Pink */
-  --accent-secondary:#8b5cf6; /* Violet */
-  --accent-cyan:    #06b6d4;
-  --accent-glow:    rgba(236, 72, 153, 0.4);
+  --accent-cyan:    #00f0ff;
+  --accent-blue:    #0047ff;
+  --accent-purple:  #8a2be2;
+  --accent-glow:    rgba(0, 240, 255, 0.4);
 
-  --text-main:      #f8fafc;
-  --text-soft:      #94a3b8;
-  --text-dim:       #475569;
+  --text-main:      #ffffff;
+  --text-soft:      #b0c0d0;
+  --text-dim:       #405060;
 
   /* Typography */
   --font-main:     'Plus Jakarta Sans', sans-serif;
-  --font-serif:    'Instrument Serif', serif;
+  --font-display:  'Syncopate', sans-serif;
 
   /* Glassmorphism */
-  --glass-border:   rgba(255, 255, 255, 0.1);
-  --glass-shadow:   0 32px 64px -16px rgba(0, 0, 0, 0.6);
+  --glass-border:   rgba(0, 240, 255, 0.2);
+  --glass-shadow:   0 32px 64px -16px rgba(0, 0, 0, 0.8);
   
-  --radius-button: 18px;
-  --radius-card:   32px;
+  --radius-button: 4px;
+  --radius-card:   16px;
 }
 
 * {
@@ -48,7 +48,7 @@ body {
 }
 
 button {
-  font-family: var(--font-main);
+  font-family: var(--font-display);
   border: none;
   background: none;
   cursor: pointer;
@@ -57,14 +57,17 @@ button {
 
 /* Global scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-deep);
+  background: var(--bg-darker);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--glass-border);
+  background: var(--accent-blue);
   border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
 }
 
 /* Background Animated Gradient */
@@ -72,6 +75,8 @@ button {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(circle at 20% 20%, rgba(236, 72, 153, 0.05) 0%, transparent 40%),
-              radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 40%);
+  background: radial-gradient(circle at 20% 20%, rgba(0, 71, 255, 0.15) 0%, transparent 40%),
+              radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.15) 0%, transparent 40%),
+              radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.05) 0%, transparent 60%);
+  filter: blur(40px);
 }

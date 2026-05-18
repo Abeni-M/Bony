@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './PhotoSlideshow.css'
 
-const imageModules = import.meta.glob('../assets/*.{png,jpg,jpeg,webp}', { eager: true })
+const imageModules = import.meta.glob('../assets/**/*.{png,jpg,jpeg,webp}', { eager: true })
 export const slideshowImages = Object.keys(imageModules)
-  .filter((p) => !p.includes('profile.jpg'))
   .map((p) => imageModules[p].default)
 
 const PhotoSlideshow = ({ intervalMs = 4500 }) => {

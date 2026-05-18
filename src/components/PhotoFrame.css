@@ -1,0 +1,135 @@
+.photo-frame-root {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--bg-deep);
+}
+
+.photo-frame-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(13, 2, 21, 0.8) 0%, rgba(13, 2, 21, 0.3) 100%);
+  backdrop-filter: blur(2px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.frame-track {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  overflow: hidden;
+  opacity: 0.8; 
+  transition: opacity 0.5s ease;
+}
+
+.photo-frame-root:hover .frame-track {
+  opacity: 1; 
+}
+
+/* Positioning the tracks to frame the screen */
+.frame-top {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+}
+
+.frame-bottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+}
+
+.frame-left {
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+}
+
+.frame-right {
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+}
+
+/* Image strips and scrolling directions */
+.frame-strip {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.strip-horizontal {
+  flex-direction: row;
+  width: max-content;
+  animation: scrollHorizontal 120s linear infinite;
+}
+
+.strip-horizontal-reverse {
+  flex-direction: row;
+  width: max-content;
+  animation: scrollHorizontalReverse 120s linear infinite;
+}
+
+.strip-vertical {
+  flex-direction: column;
+  height: max-content;
+  animation: scrollVertical 120s linear infinite;
+}
+
+.strip-vertical-reverse {
+  flex-direction: column;
+  height: max-content;
+  animation: scrollVerticalReverse 120s linear infinite;
+}
+
+/* The actual images */
+.frame-img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.8);
+  border: 2px solid rgba(255,255,255,0.1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.frame-img:hover {
+  transform: scale(1.15) translateZ(0);
+  border-color: var(--accent-primary);
+  box-shadow: 0 20px 40px var(--accent-glow);
+  z-index: 10;
+}
+
+/* Infinite Scrolling Keyframes */
+@keyframes scrollHorizontal {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollHorizontalReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes scrollVertical {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes scrollVerticalReverse {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .frame-left, .frame-right {
+    display: none;
+  }
+}

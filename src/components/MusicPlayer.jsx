@@ -1,9 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import './MusicPlayer.css'
 
-// Chopin – Nocturne Op. 9 No. 2 (public domain, Wikimedia Commons)
-const CLASSICAL_SRC =
-  'https://upload.wikimedia.org/wikipedia/commons/1/17/Fr%C3%A9d%C3%A9ric_Chopin_-_Nocturne_Op._9_No._2_E_flat_major.ogg'
+import localMusic from '../assets/music/Daniel_Amdemichael_አመሰግናለሁ_Ameseginalew_ዳንኤል_አምዴሚካኤል_New_Eth.m4a'
 
 const MusicPlayer = () => {
   const audioRef = useRef(null)
@@ -14,7 +12,7 @@ const MusicPlayer = () => {
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
-    audio.volume = 0.22
+    audio.volume = 0.5
     audio.play().then(() => setPlaying(true)).catch(() => {})
   }, [])
 
@@ -29,14 +27,14 @@ const MusicPlayer = () => {
 
   return (
     <div className={`music-player ${playing ? 'mp-playing' : 'mp-paused'}`}>
-      <audio ref={audioRef} src={CLASSICAL_SRC} loop preload="auto" />
+      <audio ref={audioRef} src={localMusic} loop preload="auto" />
 
       <button
         id="music-toggle-btn"
         className="mp-btn"
         onClick={toggle}
-        title={playing ? 'Pause music' : 'Play classical music'}
-        aria-label={playing ? 'Pause music' : 'Play classical music'}
+        title={playing ? 'Pause music' : 'Play romantic music'}
+        aria-label={playing ? 'Pause music' : 'Play romantic music'}
       >
         {/* Animated bars when playing */}
         <span className="mp-bars" aria-hidden="true">
@@ -47,7 +45,7 @@ const MusicPlayer = () => {
 
       {/* Label shown on hover */}
       <span className="mp-label">
-        {playing ? 'Chopin · Nocturne' : 'Play Music'}
+        {playing ? 'Ameseginalew · Daniel' : 'Play Music'}
       </span>
 
       {/* Close */}

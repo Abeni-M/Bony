@@ -1,0 +1,81 @@
+.loader-root {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-deep);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s ease;
+}
+
+.loader-root.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.05);
+}
+
+.loader-content {
+  position: relative;
+  text-align: center;
+}
+
+.loader-text {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid var(--accent-cyan);
+  width: 0;
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+}
+
+.typing-active {
+  animation: typing 1.5s steps(30, end) forwards, blink 0.75s step-end infinite;
+}
+
+.loader-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 100px;
+  background: var(--accent-purple);
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0;
+  animation: pulseGlow 3s infinite alternate;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--accent-cyan); }
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.8); }
+  100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+@media (max-width: 768px) {
+  .loader-text {
+    font-size: 1.5rem;
+    white-space: normal;
+    animation: fadeInLoader 1s forwards;
+    border-right: none;
+    width: auto;
+    opacity: 0;
+  }
+  @keyframes fadeInLoader {
+    to { opacity: 1; }
+  }
+}

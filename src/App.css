@@ -1,12 +1,28 @@
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* App.css */
+.app-root {
+  position: relative;
+  min-height: 100vh;
 }
 
-.app-root {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
+.scroll-container {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  perspective: 1px;
+}
+
+.particles-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(0, 240, 255, 0.15) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.2;
+  z-index: 1;
+  animation: moveParticles 30s linear infinite;
+}
+
+@keyframes moveParticles {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 600px; }
 }

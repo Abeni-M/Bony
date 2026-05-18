@@ -32,67 +32,60 @@ const QuizScreen = ({ questions, onFinish }) => {
 
   return (
     <div className="quiz-root">
-      <div className="quiz-orb quiz-orb-1" />
-      <div className="quiz-orb quiz-orb-2" />
-
-      <div className="quiz-layout">
-        <div className="quiz-photo-panel">
+      <div className="quiz-split-layout">
+        <div className="quiz-slide-side">
           <PhotoSlideshow intervalMs={5000} />
           <div className="quiz-emoji-badge">{step.emoji}</div>
         </div>
 
-        <div className={`quiz-card ${animating ? 'quiz-card-exit' : ''}`}>
-          <div className="quiz-step-dots">
-            {questions.map((_, i) => (
-              <span
-                key={i}
-                className={`step-dot ${i === qIndex ? 'step-dot-active' : ''} ${i < qIndex ? 'step-dot-done' : ''}`}
-              />
-            ))}
-          </div>
+        <div className="quiz-text-side">
+          <div className={`quiz-card ${animating ? 'quiz-card-exit' : ''}`}>
+            <div className="quiz-progress-text">
+              Chapter {qIndex + 1} of {questions.length}
+            </div>
 
-          <div className="quiz-content-wrapper">
-            {step.type === 'story' ? (
-              <>
-                <h2 className="quiz-question">{step.message}</h2>
-                <p className="quiz-afaan">{step.afaanOromo}</p>
-                <button className="quiz-next-btn quiz-next-ready" onClick={() => handleNext()}>
-                  <span>{step.btnText}</span>
-                  <span className="quiz-next-icon">→</span>
-                </button>
-              </>
-            ) : (
-              <>
-                <h2 className="quiz-question">{step.question}</h2>
-                <div className="quiz-answers">
-                  {step.answers.map((ans, i) => (
-                    <button
-                      key={i}
-                      className="quiz-answer-btn"
-                      onClick={() => handleNext(ans.score, ans.text)}
-                    >
-                      <span>{ans.text}</span>
-                    </button>
-                  ))}
-                </div>
-
-                <div className="quiz-personal-box">
-                  <p className="quiz-box-label">Or write your own thoughts... ✍️</p>
-                  <textarea 
-                    className="quiz-textarea"
-                    placeholder="Type here..."
-                    value={personalMsg}
-                    onChange={(e) => setPersonalMsg(e.target.value)}
-                  />
-                  <button 
-                    className="quiz-submit-written"
-                    onClick={() => handleNext(3, "Written Message")}
-                  >
-                    Send My Own Message
+            <div className="quiz-content-wrapper">
+              
+              {step.type === 'story' ? (
+                <>
+                  <h2 className="quiz-question">{step.message}</h2>
+                  <button className="quiz-next-btn quiz-next-ready" onClick={() => handleNext()}>
+                    <span>{step.btnText}</span>
                   </button>
-                </div>
-              </>
-            )}
+                </>
+              ) : (
+                <>
+                  <h2 className="quiz-question">{step.question}</h2>
+                  <div className="quiz-answers">
+                    {step.answers.map((ans, i) => (
+                      <button
+                        key={i}
+                        className="quiz-answer-btn"
+                        onClick={() => handleNext(ans.score, ans.text)}
+                      >
+                        <span>{ans.text}</span>
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="quiz-personal-box">
+                    <p className="quiz-box-label">Or write your own words...</p>
+                    <textarea 
+                      className="quiz-textarea"
+                      placeholder="Your message..."
+                      value={personalMsg}
+                      onChange={(e) => setPersonalMsg(e.target.value)}
+                    />
+                    <button 
+                      className="quiz-submit-written"
+                      onClick={() => handleNext(3, "Written Message")}
+                    >
+                      Send
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>
